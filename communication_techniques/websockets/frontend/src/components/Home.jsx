@@ -17,7 +17,7 @@ const Home = () => {
     return () => {
       console.log("cleanup in home");
     };
-  }, [render]);
+  }, []);
 
   const createNamespace = async (namespace) => {
     const payload = { nsp: namespace };
