@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <title>SSE</title>
-    </head>
-    <body>
-        <h1>Server Side Events</h1>
-        <div class="container">
-            <div>
-                <div class="heading">
-                    <h3>Hoolala</h3>
-                </div>
-                <ul class="list" id="hoolala"></ul>
-            </div>
-            <div>
-                <div class="heading">
-                    <h3>Jigalala</h3>
-                </div>
-                <ul class="list" id="jigalala"></ul>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SSE</title>
+  </head>
+  <body>
+    <h1>Server Side Events</h1>
+    <div class="container">
+      <div>
+        <div class="heading">
+          <h3>Hoolala</h3>
         </div>
-    </body>
-    <script>
-        // initialize eventsource, listening for server updates
-        const eventSource = new EventSource("http://51.20.40.27/sse");
-        // eventSource.onmessage = function (event) {
-        //   const newElement = document.createElement("li");
-        //   newElement.textContent = event.data;
-        //   document.getElementById("events").appendChild(newElement);
-        //   eventSource.onerror = function (event) {
-        //     console.log("Error occurred:", event);
-        //   };
-        // };
-        eventSource.addEventListener("Hoolala", function (event) {
-            console.log("Custom event received:", event.data);
-            const eventList = document.getElementById("hoolala");
-            const newItem = document.createElement("li");
-            newItem.textContent = event.data;
-            eventList.appendChild(newItem);
-        });
-        eventSource.addEventListener("Jigalala", function (event) {
-            console.log("Custom event received:", event.data);
-            const eventList = document.getElementById("jigalala");
-            const newItem = document.createElement("li");
-            newItem.textContent = event.data;
-            eventList.appendChild(newItem);
-        });
-    </script>
+        <ul class="list" id="hoolala"></ul>
+      </div>
+      <div>
+        <div class="heading">
+          <h3>Jigalala</h3>
+        </div>
+        <ul class="list" id="jigalala"></ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    // initialize eventsource, listening for server updates
+    const eventSource = new EventSource("http://localhost:5011/sse");
+    // eventSource.onmessage = function (event) {
+    //   const newElement = document.createElement("li");
+    //   newElement.textContent = event.data;
+    //   document.getElementById("events").appendChild(newElement);
+    //   eventSource.onerror = function (event) {
+    //     console.log("Error occurred:", event);
+    //   };
+    // };
+    eventSource.addEventListener("Hoolala", function (event) {
+      console.log("Custom event received:", event.data);
+      const eventList = document.getElementById("hoolala");
+      const newItem = document.createElement("li");
+      newItem.textContent = event.data;
+      eventList.appendChild(newItem);
+    });
+    eventSource.addEventListener("Jigalala", function (event) {
+      console.log("Custom event received:", event.data);
+      const eventList = document.getElementById("jigalala");
+      const newItem = document.createElement("li");
+      newItem.textContent = event.data;
+      eventList.appendChild(newItem);
+    });
+  </script>
 </html>

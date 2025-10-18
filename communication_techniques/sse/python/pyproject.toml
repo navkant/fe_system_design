@@ -6,7 +6,7 @@ authors = ["navkant <navkant.tyagi9@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 flask = "^3.1.0"
 flask-cors = "^5.0.1"
 
