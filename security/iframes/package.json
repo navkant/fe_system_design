@@ -1,0 +1,18 @@
+{
+  "name": "iframes",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server1": "nodemon server1/index1.js",
+    "server2": "nodemon server2/index2.js"
+  },
+  "author": "navkant",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
