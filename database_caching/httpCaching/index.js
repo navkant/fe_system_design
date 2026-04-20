@@ -3,9 +3,10 @@ const path = require("path");
 const app = express();
 
 app.use((req, res, next) => {
-  res.setHeader("Cache-Control", "public, max-age=86400");
-  // res.setHeader('Cache-Control', 'public, max-age=86400');
-  res.setHeader("Expires", "Sat, 16 Apr 2026 13:43:39 GMT");
+  // res.setHeader("Cache-Control", "public, max-age=86400");
+  // res.setHeader("Cache-Control", "public, max-age=30");
+  // res.setHeader("Expires", "Fri, 17 Apr 2026 04:52:39 GMT");
+  res.set("Cache-Control", "public, max-age=35, must-revalidate");
   next();
 });
 
@@ -16,6 +17,11 @@ app.use(
     lastModified: false,
   }),
 );
+
+app.get("/index", (req, res) => {
+  console.log(new Date());
+  res.send({ message: new Date() });
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
